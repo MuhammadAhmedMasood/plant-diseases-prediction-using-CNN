@@ -60,3 +60,10 @@ Notes
 The class_indices.json file is required for mapping predictions to class labels.
 
 The CNN model was trained in Google Colab and can be retrained using plant_disease_prediction_using_cnn.py.
+
+### Note on Model File
+
+The trained CNN model (`plant_disease_model.h5`) is too large to include directly in the repository (50 MB).  
+When running the app, `main.py` will **automatically download the model** from an external source (Google Drive) if it does not exist locally.  
+This ensures the app works both locally and on Streamlit Cloud without exceeding GitHub file size limits.
+
