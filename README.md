@@ -64,6 +64,5 @@ The CNN model was trained in Google Colab and can be retrained using plant_disea
 ### Note on Model File
 
 The trained CNN model (`plant_disease_model.h5`) is too large to include directly in the repository (50 MB).  
-When running the app, `main.py` will **automatically download the model** from an external source (Google Drive) if it does not exist locally.  
-This ensures the app works both locally and on Streamlit Cloud without exceeding GitHub file size limits.
+You can use the plant_disease_prediction_using_cnn.py to get the trained model.
 
