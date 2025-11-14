@@ -6,6 +6,7 @@ Created on Thu Nov 13 19:07:53 2025
 """
 
 import os
+import gdown
 import json
 from PIL import Image
 
@@ -16,6 +17,13 @@ import streamlit as st
 
 working_dir = os.path.dirname(os.path.abspath(__file__))
 model_path = f"{working_dir}/plant_disease_prediction_cnn_model.h5"
+
+# Download the model if it does not exist
+if not os.path.exists(model_path):
+    url = "https://drive.google.com/uc?id=1IrUM3bVwMTN44NFHy2ySmnA1cHw0b1KP"
+    st.write("Downloading model... please wait")
+    gdown.download(url, model_path, quiet=False)
+
 # Load the pre-trained model
 model = tf.keras.models.load_model(model_path)
 
@@ -65,3 +73,4 @@ if uploaded_image is not None:
             # Preprocess the uploaded image and predict the class
             prediction = predict_image_class(model, uploaded_image, class_indices)
             st.success(f'Prediction: {str(prediction)}')
+
